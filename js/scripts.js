@@ -14,6 +14,8 @@ AddressBook.prototype.assignId = function() {
   return this.currentId;
 };
 
+corgi butt
+
 AddressBook.prototype.findContact = function(id) {
   if (this.contacts[id] !== undefined) {
     return this.contacts[id];
@@ -29,12 +31,17 @@ AddressBook.prototype.deleteContact = function(id) {
   return true;
 };
 
+// Business Logic for Addresses
+
+
+
 // Business Logic for Contacts ---------
-function Contact(firstName, lastName, phoneNumber, newEmail) {
+function Contact(firstName, lastName, phoneNumber, newEmail, newHome,) {
   this.firstName = firstName;
   this.lastName = lastName;
   this.phoneNumber = phoneNumber;
   this.newEmail = newEmail;
+  this.newHome = newHome;
 }
 
 Contact.prototype.fullName = function() {
@@ -64,6 +71,7 @@ function displayContactDetails(event) {
   document.querySelector(".last-name").innerText = contact.lastName;
   document.querySelector(".phone-number").innerText = contact.phoneNumber;
   document.querySelector(".email-address").innerText = contact.newEmail;
+  document.querySelector(".home-address").innerText = contact.newHome;
   document.querySelector("button.delete").setAttribute("id", contact.id);
   document.querySelector("div#contact-details").removeAttribute("class");
 }
@@ -81,13 +89,15 @@ function handleFormSubmission(event) {
   const inputtedLastName = document.querySelector("input#new-last-name").value;
   const inputtedPhoneNumber = document.querySelector("input#new-phone-number").value;
   const inputtedNewEmail = document.querySelector("input#new-email-address").value;
-  let newContact = new Contact(inputtedFirstName, inputtedLastName, inputtedPhoneNumber, inputtedNewEmail);
+  const inputtedNewHome = document.querySelector("input#new-home-address").value;
+  let newContact = new Contact(inputtedFirstName, inputtedLastName, inputtedPhoneNumber, inputtedNewEmail, inputtedNewHome);
   addressBook.addContact(newContact);
   listContacts(addressBook);
   document.querySelector("input#new-first-name").value = null;
   document.querySelector("input#new-last-name").value = null;
   document.querySelector("input#new-phone-number").value = null;
   document.querySelector("input#new-email-address").value = null;
+  document.querySelector("input#new-home-address").value = null;
 }
 
 window.addEventListener("load", function (){
