@@ -14,8 +14,6 @@ AddressBook.prototype.assignId = function() {
   return this.currentId;
 };
 
-corgi butt
-
 AddressBook.prototype.findContact = function(id) {
   if (this.contacts[id] !== undefined) {
     return this.contacts[id];
